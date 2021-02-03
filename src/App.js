@@ -1,23 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-
+import useDarkMode from './useDarkMode'
 function App() {
+  const [theme, toggleTheme] = useDarkMode()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ background: theme === 'dark' ? '#212121' : '#fff', transition: '.2s all' }}>
+
+      <button type="button" onClick={toggleTheme}>Switch Theme</button>
     </div>
   );
 }
